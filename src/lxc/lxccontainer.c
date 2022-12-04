@@ -1124,12 +1124,6 @@ reboot:
 		ret = lxc_start(argv, handler, c->config_path, c->daemonize,
 				&c->error_num);
 
-	if (conf->reboot == REBOOT_REQ) {
-		INFO("Container requested reboot");
-		conf->reboot = REBOOT_INIT;
-		goto reboot;
-	}
-
 on_error:
 	if (c->pidfile) {
 		unlink(c->pidfile);
